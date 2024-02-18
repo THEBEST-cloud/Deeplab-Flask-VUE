@@ -90,7 +90,7 @@
         <!-- 卡片放置表格 -->
         <el-card style="border-radius: 8px">
           <div slot="header" class="clearfix">
-            <span>检测目标</span>
+            <span>分割目标</span>
             <el-button
               style="margin-left: 35px"
               v-show="!showbutton"
@@ -110,7 +110,7 @@
             </el-button>
           </div>
           <el-tabs v-model="activeName">
-            <el-tab-pane label="检测到的目标" name="first">
+            <el-tab-pane label="分割到的目标" name="first">
               <!-- 表格存放特征值 -->
               <el-table
                 :data="feature_list"
@@ -127,12 +127,12 @@
                     <span>{{ scope.row[2] }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="目标大小" width="250px">
+                <el-table-column label="目标像素面积" width="250px">
                   <template slot-scope="scope">
                     <span>{{ scope.row[0] }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="置信度" width="250px">
+                <el-table-column label="面积占比" width="250px">
                   <template slot-scope="scope">
                     <span>{{ scope.row[1] }}</span>
                   </template>
@@ -182,7 +182,7 @@ export default {
     };
   },
   created: function () {
-    document.title = "YOLOv5目标检测WEB端";
+    document.title = "梯田分割预测系统";
   },
   methods: {
     true_upload() {
